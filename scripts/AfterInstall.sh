@@ -2,7 +2,7 @@
 
 #將sercretFile從s3下載
 cd /home/ec2-user/deploy/code/
-aws s3 cp s3://cc103-deploy-certification/secretFile.txt .
+aws s3 cp s3://dc101-project02/secretFile.txt .
 
 #將database從s3下載
 cd /home/ec2-user/deploy/
