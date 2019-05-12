@@ -1,4 +1,4 @@
-if [ `docker ps | wc -l` = 3 ]
+if [ `docker ps | wc -l` = 4 ]
 then
 	exit 0
 else
