@@ -23,9 +23,9 @@ phases:
     - git submodule init
     - git submodule update
 #將專案所的images由dockerfile建立起來
-    - docker build -t $URI/chatbot_db:latest ./cloudtest/dockerfile/mariadb/
-    - docker build -t $URI/chatbot_flask:latest ./cloudtest/dockerfile/flask/
-    - docker build -t $URI/chatbot_serveo:latest ./cloudtest/dockerfile/serveo/
+    - docker build -t $URI/chatbot_db:latest -f ./dockerfile/dockerfile-mariadb ./dockerfile/
+    - docker build -t $URI/chatbot_flask:latest -f ./dockerfile/dockerfile-flask ./dockerfile/
+    - docker build -t $URI/chatbot_serveo:latest -f ./dockerfile/dockerfile-serveo ./dockerfile/
 #將build打上tag
     - docker tag $URI/chatbot_db:latest $URI/chatbot_db:$TAG
     - docker tag $URI/chatbot_flask:latest $URI/chatbot_flask:$TAG
