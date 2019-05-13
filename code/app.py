@@ -28,7 +28,7 @@ import pymysql
 from threading import Thread
 import json
 import random
-
+import logging
 #--使用json讀取secretFile.txt
 secretFile = json.load(open("./secretFile.txt",'r'))
 #--從secretFile.txt取得channelAccessToken
@@ -605,5 +605,14 @@ def index():
     return render_template('index.html')
 
 if __name__ == "__main__":
+    app.debug = True
+    today = (datetime.datetime.utcnow() + datetime.timedelta(hours=8)).strftime("%Y-%m-%d")
+    nowTime = (datetime.datetime.utcnow() + datetime.timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
+    handler2 = logging.FileHandler('./logs/flask-'+today+'.log', encoding='UTF-8')
+    handler2.setLevel(logging.DEBUG)
+    logging_format = logging.Formatter(
+    nowTime + ' - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
+    handler2.setFormatter(logging_format)
+    app.logger.addHandler(handler2)   
     app.run(host='0.0.0.0')
-
+   
