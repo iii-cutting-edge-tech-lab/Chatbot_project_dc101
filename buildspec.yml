@@ -20,8 +20,8 @@ phases:
     - echo Build started on date
     - echo Building the Docker image...
 #先將git初始化
-    - git submodule init
-    - git submodule update
+    #- git submodule init
+    #- git submodule update
 #將專案所的images由dockerfile建立起來
     - docker build -t $URI/chatbot_db:latest -f ./dockerfile/dockerfile-mariadb ./dockerfile/
     - docker build -t $URI/chatbot_flask:latest -f ./dockerfile-flask .

@@ -408,7 +408,7 @@ def handle_message(event):
                 TemplateSendMessage(
                 alt_text='機房申請選單',
                 template=ButtonsTemplate(
-                #thumbnail_image_url='https://lh3.googleusercontent.com/p4LcxNthdIgZ1ZE0aqOgrhl-ppUZjIq4m8vhcmD62B29T3kAcIydLNj8eqOVUbCPirCQvvBeTv-MNcyCmpZp0L3O2iEe8n4Nelz8_s58Ypp4lRCG9A8cqGSor5rxHHeaUQC6U0EBCNv20puOgMmjxHT0s_ViDKIGJrH_sd16G8RNmtd6Ip-7WWUPPgwLgHkHxxOJlGkCscurTY-uF812L5TkXG6u2fiiBqZgCVxCr-9ZKzZnpV_mBlNncFexR18uQgptxOdkuEIMWvpNYO8uQyzTlYPAe-3pipqX8h9UcGTfpbhn-Eh5a8iUOFKni1go6ycDmr9OfzMsThfHCfwRQjJiOe0-QphR2omLHhhvGiXC22dQ0CWKKbiQhkX2Ji5vKT04lyGbiSVqpyVTo-RXBGoZYmn6zUDJ9NLT0azXSVLi3hjFm9o1yHoUQVjeTdCUc1qaXg3FtaHewvQ1g-mYbw-atlnsy_aIFjSdl8KOOgwsJuJaBvJ-5shvcqMoBdNcjPWHblSBEtV5XpkfIgrHmQdPUDv5wPBgYzAqy3tlGPzQr2FR2IVslx4VfHaaXxq92gG9IXZLi3tFy6vpCVl544qpDhdPFuEz79w8paCf39Tl7fwzujfUq9Uh9NcVRPF7dum9CheV5F_llIYEWVdcFKyQAncVD80=w1693-h767-no',
+                #thumbnail_image_url='',
                 title='機房申請選單',
                 text='請選擇',
                 actions=[
@@ -591,8 +591,7 @@ def stickerMessage(event):
     stickerId = str(random.randint(51626494,51626533))
     sendMessage = [
         # 文字消息1
-        #TextSendMessage("package_id="+event.message.package_id+",sticker_id="+event.message.sticker_id
-        #),
+        #TextSendMessage("package_id="+event.message.package_id+",sticker_id="+event.message.sticker_id),
         # 貼圖消息
         StickerSendMessage(
             package_id='11538',
