@@ -1,7 +1,7 @@
 FROM python:3.7
 
 # add project
-COPY ../code /app
+COPY ./code /app
 WORKDIR /app
 
 # install flask
