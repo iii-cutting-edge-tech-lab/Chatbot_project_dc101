@@ -18,10 +18,10 @@ services:
       - db
     ports:
       - "5000:5000"
-    volumes:
-      - ./code:/app/
-    command:
-      - app.py
+    #volumes:
+      #- ./code:/app/
+    #command:
+      #-python app.py
   serveo:
     image: 204065533127.dkr.ecr.ap-northeast-1.amazonaws.com/chatbot_serveo
     container_name: chatbot_serveo
