@@ -92,12 +92,12 @@ def SQL_select_all(SQL):
     return data
 
 def chk_user(UID):
-    SQL="select Line_UID,cName from userdata where Del_YN='N' and Line_UID='"+UID+"'";
+    SQL="select Line_UID,cName from line_userdata where Del_YN='N' and Line_UID='"+UID+"'";
     data=SQL_select(SQL);
     return data
 
 def chk_student_ID(UID):
-    SQL="select Student_ID from userdata where Del_YN='N' and Line_UID='"+UID+"'";
+    SQL="select Student_ID from line_userdata where Del_YN='N' and Line_UID='"+UID+"'";
     data=SQL_select(SQL);data=data[0];
     return data
 
@@ -231,7 +231,7 @@ def handle_message(event):
                 SQL="select Student_ID from basic_info where Del_YN='N' and cName='"+msglist[1]+"' and Student_ID='"+msglist[2]+"'";
                 data=SQL_select(SQL);
                 if data is not None:
-                    SQL="INSERT INTO userdata (Line_UID,cName,Student_ID,AddDate) VALUES ('"+UID +"',N'" + msglist[1] + "','" + msglist[2] + "','" + nowTime +"')";
+                    SQL="INSERT INTO line_userdata (Line_UID,cName,Student_ID,AddDate) VALUES ('"+UID +"',N'" + msglist[1] + "','" + msglist[2] + "','" + nowTime +"')";
                     SQL_commit(SQL);
                     line_bot_api.reply_message(event.reply_token,TextSendMessage(text="已完成註冊! 請在手機使用選單功能~"))
                 else:
