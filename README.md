@@ -1,6 +1,9 @@
 此為修改好app.py和test_app.py之文件。
 
-1. 用git clone https://……… 從master取得主程式
+app.py 內容為Line chatbot 的主程式，功能為Line接收到使用者訊息時，經過判斷後跟Mariadb互動後再將結果回傳給使用者。
+test_app.py 內容為單元測試，測試app.py的def 功能，如與SQL的查詢、Line chatbot api等測試。
+
+1. 用git clone https://github.com/iii-cutting-edge-tech-lab/Chatbot_project_dc101.git 從master取得主程式
 
 2. cd 到此專案後git branch確認在哪個分支
 
