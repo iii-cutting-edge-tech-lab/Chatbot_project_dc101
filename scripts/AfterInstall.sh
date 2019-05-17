@@ -3,7 +3,7 @@
 sudo yum install -y perl-Switch perl-DateTime perl-Sys-Syslog perl-LWP-Protocol-https perl-Digest-SHA.x86_64
 curl https://aws-cloudwatch.s3.amazonaws.com/downloads/CloudWatchMonitoringScripts-1.2.2.zip -O
 
-unzip CloudWatchMonitoringScripts-1.2.2.zip && \
+sudo unzip CloudWatchMonitoringScripts-1.2.2.zip && \
 rm CloudWatchMonitoringScripts-1.2.2.zip && \
 cd aws-scripts-mon
 
@@ -11,8 +11,8 @@ sudo aws s3 cp s3://dc101-project02/awscreds.conf /home/ec2-user/aws-scripts-mon
 
 ./mon-put-instance-data.pl --mem-used
 
-sudo crontab -e -u ec2-user
-*/5 * * * * ~/aws-scripts-mon/mon-put-instance-data.pl --mem-used
+sudo chown ec2-user:ec2-user /var/spool/cron
+sudo echo "*/5 * * * * ~/aws-scriptseu:q:q-mon/mon-put-instance-data.pl --mem-used" >> /var/spool/cron/ec2-user
 
 sudo yum update -y
 sudo yum install -y awslogs
