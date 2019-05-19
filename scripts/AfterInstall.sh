@@ -12,7 +12,7 @@ sudo aws s3 cp s3://dc101-project02/awscreds.conf /home/ec2-user/aws-scripts-mon
 ./mon-put-instance-data.pl --mem-used
 
 sudo chown ec2-user:ec2-user /var/spool/cron
-sudo echo "*/5 * * * * ~/aws-scriptseu:q:q-mon/mon-put-instance-data.pl --mem-used" >> /var/spool/cron/ec2-user
+sudo echo "*/5 * * * * ~/aws-scripts-mon/mon-put-instance-data.pl --mem-used" >> /var/spool/cron/ec2-user
 
 sudo yum update -y
 sudo yum install -y awslogs
