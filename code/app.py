@@ -1,14 +1,4 @@
 #!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
-#get_ipython().system('pip install PyMySQL')
-
-
-# In[ ]:
-
 
 from flask import (Flask, request, abort, jsonify, render_template)
 
@@ -92,12 +82,12 @@ def SQL_select_all(SQL):
     return data
 
 def chk_user(UID):
-    SQL="select Line_UID,cName from line_userdata where Del_YN='N' and Line_UID='"+UID+"'";
+    SQL="select Line_UID,cName from line_userdata where Line_UID='"+UID+"'";
     data=SQL_select(SQL);
     return data
 
 def chk_student_ID(UID):
-    SQL="select Student_ID from line_userdata where Del_YN='N' and Line_UID='"+UID+"'";
+    SQL="select Student_ID from line_userdata where Line_UID='"+UID+"'";
     data=SQL_select(SQL);data=data[0];
     return data
 
@@ -246,7 +236,7 @@ def handle_message(event):
         if data is not None:
             student_ID=chk_student_ID(UID);
             Class=chk_class(student_ID);
-            SQL="select Class,Date,Course,T_course from course_table where Del_YN='N' and Class='"+Class+"' and Date between '" + today + "' and '" + week + "' order BY Date";
+            SQL="select Class,Date,Course,T_course from course_table where Class='"+Class+"' and Date between '" + today + "' and '" + week + "' order BY Date";
             data=SQL_select_all(SQL);
             if data is not None:
                 Date="";
@@ -613,6 +603,7 @@ if __name__ == "__main__":
     logging_format = logging.Formatter(
     nowTime + ' - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
     handler2.setFormatter(logging_format)
-    app.logger.addHandler(handler2)   
+    app.logger.addHandler(handler2)
     app.run(host='0.0.0.0')
-   
+
+
